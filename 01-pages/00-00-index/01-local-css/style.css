@@ -1,14 +1,36 @@
 /*
 /* 00-00-index
 /* CASCADING STYLE SHEET FOR STYLING
-/*
-*/
-body {
+/* IN ORDER OF WEBPAGE VIEW
+**/
+
+/**
+*
+* STANDARD SETTINGS
+*
+**/
+body,
+html {
   margin: 0;
+  padding: 0;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
-/*Fade in effect for home page */
-/*TODO: Move to 00-00-index */
+/**
+*
+* FRONTPAGE
+*
+/**
+
+ /*Frontpage full section*/
+.frontpage {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  overflow: hidden;
+}
+
+/*Opening image fader*/
 .frontpage-fader {
   position: absolute;
   top: 0;
@@ -23,18 +45,21 @@ body {
   transition: opacity 1s ease-in-out;
 }
 
+/*Frontpage image*/
 .front-img img {
   width: 100%;
   height: 100%;
   z-index: 1;
 }
 
+/*Frontpage title*/
 .text-overlay {
+  font-family: "Times New Roman", Times, serif;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: yellow;
+  color: rgb(255, 255, 255);
   font-size: 100px;
   font-weight: bold;
   text-align: center;
@@ -42,13 +67,7 @@ body {
   overflow: hidden;
 }
 
-.frontpage {
-  position: relative;
-  width: 100%;
-  height: 520px;
-  overflow: hidden;
-}
-
+/*Frontpage top box*/
 .frontpage-whitebox-top-0 {
   position: absolute;
   top: 0;
@@ -59,12 +78,13 @@ body {
   z-index: 10;
 }
 
+/*Frontpage faderbox top*/
 .frontpage-whitebox-top {
   position: absolute;
   top: 50px;
   left: 0;
   width: 100%;
-  height: 50px; /* Adjust to control the box height */
+  height: 50px;
   background: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 1),
@@ -73,15 +93,182 @@ body {
   z-index: 10;
 }
 
+/*Frontpage faderbox bottom*/
 .frontpage-whitebox-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 50px;
-    background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-    z-index: 10;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+  z-index: 10;
 }
+
+/**
+*
+* NAVBAR SPECIFIC FOR INDEX.HTML
+*
+**/
+
+/*Standard navbar settings*/
+.navbar {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  color: white;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  line-height: 60px;
+  top: 0;
+  z-index: 1000;
+  height: 100px;
+
+  /*Transition to grey */
+  transition: background-color 0.5s ease;
+  transition: line-height 1s ease;
+}
+
+/*Display settings when sticky*/
+.navbar.sticky {
+  background-color: rgb(255, 255, 255);
+  line-height: 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+/*Navbar links*/
+.navbar a {
+  color: rgb(131, 131, 131);
+  text-decoration: none;
+  font-size: 25px;
+  font-style: bold;
+}
+
+/*Navbar links when sticky*/
+.navbar.sticky a {
+  color: rgb(131, 131, 131);
+}
+
+/**
+*
+* INTRODUCTION TEXT
+*
+**/
+
+/*Introduction text*/
+.index-introduction {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  height: 85vh; /* 85% of viewport height */
+  margin-top: 100px; /* Offset for the navbar height */
+  background-color: white; /* Background color for visibility */
+  padding: 20px;
+  color: black;
+}
+
+#index-hello-there {
+  font-size: larger;
+}
+
+#index-current-projects {
+  font-size: larger;
+}
+
+#index-fun-fact {
+  font-size: larger;
+}
+
+/*Introduction text list elements*/
+.index-introduction-left li {
+  list-style-position: inside; /* Moves the list symbol inside the box */
+  padding-left: 1.5em; /* Adds padding for text alignment */
+  text-indent: -1.5em; /* Indents the first line to align with the symbol */
+}
+
+/*Introduction section*/
+.text-column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-size: 24px;
+  text-align: center;
+}
+
+/*Introduction left grid*/
+.index-introduction-left {
+  background-color: #ffffff; /* Light background for left column */
+  line-height: 25px;
+}
+
+/*Introduction right grid*/
+.index-introduction-right {
+  background-color: #ffffff; /* Slightly darker background for right column */
+}
+
+/*Introduction right grid image*/
+.index-introduction-right img {
+  margin-left: 20%;
+  margin-top: 10%;
+  max-width: 60%;
+  max-height: 60%;
+  border-radius: 50%;
+}
+
+/*
+*
+* IMAGE SLIDER
+*
+*/
+
+.image-slider-container {
+  width: 100%;
+  max-width: 100vw;
+  height: 500px;                   /* Set a default height for large screens */
+  overflow: hidden;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Adjust slider height and behavior on smaller screens */
+@media (max-width: 900px) {
+  .image-slider-container {
+    margin-top: 350px;
+    height: 250px;                 /* Reduce height to avoid covering text */
+  }
+}
+
+.image-slider {
+  display: flex;
+  animation: scroll 90s linear infinite;
+}
+
+.image-slider img {
+  width: 33.33vw;                  /* Each image takes 1/3 of the viewport width */
+  height: 100%;                    /* Fill the container’s height */
+  flex-shrink: 0;
+  object-fit: cover;               /* Scale and crop to fill */
+  object-position: center;         /* Center images vertically */
+  filter: brightness(60%);
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-202.5%); } /* Stops just before looping duplicates */
+}
+
+
+/**
+*
+* MEDIA TRANSFORMATIONS
+*
+**/
 
 @media (max-width: 900px) {
   .text-overlay {
