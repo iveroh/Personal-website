@@ -1,7 +1,7 @@
 /*
 /* 00-00-index
 /* CASCADING STYLE SHEET FOR STYLING
-/*
+/* IN ORDER OF WEBPAGE VIEW
 **/
 
 /**
@@ -54,7 +54,7 @@ html {
 
 /*Frontpage title*/
 .text-overlay {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -99,7 +99,7 @@ html {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 50px;
+  height: 100px;
   background: linear-gradient(
     to top,
     rgba(255, 255, 255, 1),
@@ -107,8 +107,6 @@ html {
   );
   z-index: 10;
 }
-
-/*Frontpage whitebox bottom*/
 
 /**
 *
@@ -127,7 +125,7 @@ html {
   line-height: 60px;
   top: 0;
   z-index: 1000;
-  height: 90px;
+  height: 100px;
 
   /*Transition to grey */
   transition: background-color 0.5s ease;
@@ -167,11 +165,23 @@ html {
 .index-introduction {
   display: grid;
   grid-template-columns: 1fr 1fr; /* Two equal columns */
-  height: 80vh; /* 80% of viewport height */
+  height: 85vh; /* 85% of viewport height */
   margin-top: 100px; /* Offset for the navbar height */
   background-color: white; /* Background color for visibility */
   padding: 20px;
   color: black;
+}
+
+#index-hello-there {
+  font-size: larger;
+}
+
+#index-current-projects {
+  font-size: larger;
+}
+
+#index-fun-fact {
+  font-size: larger;
 }
 
 /*Introduction text list elements*/
@@ -210,6 +220,49 @@ html {
   max-height: 60%;
   border-radius: 50%;
 }
+
+/*
+*
+* IMAGE SLIDER
+*
+*/
+
+.image-slider-container {
+  width: 100%;
+  max-width: 100vw;
+  height: 500px;                   /* Set a default height for large screens */
+  overflow: hidden;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Adjust slider height and behavior on smaller screens */
+@media (max-width: 900px) {
+  .image-slider-container {
+    margin-top: 350px;
+    height: 250px;                 /* Reduce height to avoid covering text */
+  }
+}
+
+.image-slider {
+  display: flex;
+  animation: scroll 90s linear infinite;
+}
+
+.image-slider img {
+  width: 33.33vw;                  /* Each image takes 1/3 of the viewport width */
+  height: 100%;                    /* Fill the container’s height */
+  flex-shrink: 0;
+  object-fit: cover;               /* Scale and crop to fill */
+  object-position: center;         /* Center images vertically */
+  filter: brightness(60%);
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-202.5%); } /* Stops just before looping duplicates */
+}
+
 
 /**
 *

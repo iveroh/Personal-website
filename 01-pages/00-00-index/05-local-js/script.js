@@ -36,3 +36,17 @@ document.addEventListener("DOMContentLoaded", function () {
       }
   });
 });
+
+const slider = document.querySelector('.image-slider');
+const images = document.querySelectorAll('.image-slider img');
+let index = 0;
+
+function slideImages() {
+  index++;
+  if (index >= images.length) {
+    index = 0;
+  }
+  slider.style.transform = `translateX(-${index * 100}%)`;
+}
+
+setInterval(slideImages, 3000); // Slide every 3 seconds
