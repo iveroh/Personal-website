@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Iver Heggelund - Personal Website</title>
+    <title>Iver Heggelund | IOH</title>
     <link
       rel="stylesheet"
       href="/01-pages/00-00-index/01-local-css/style.css"
     />
-
+    <!--Linking to js, stylesheet, grid, prettify, and favicon-->
     <link rel="stylesheet" href="/11-resources/01-css/style.css" />
     <link rel="prettify" href="/11-resources/01-css/prettify.css" />
     <link rel="grid" href="/11-resources/01-css/grid.css" />
@@ -16,6 +16,7 @@
     <script src="/01-pages/00-00-index/05-local-js/script.js"></script>
   </head>
   <body>
+    <!--Frontpage of index.html-->
     <section class="frontpage">
       <div class="container">
         <div class="frontpage-whitebox-top-0"></div>
@@ -25,26 +26,60 @@
       <div class="text-overlay">IVER HEGGELUND</div>
       <div class="front-img">
         <img
-          src="/01-pages/00-00-index/02-images/personal-photo-1.JPG"
-          alt="Photo of website developer"
+          src="/01-pages/00-00-index/02-images/frontpage-photo.JPG"
+          alt="Photo of website creator"
         />
       </div>
       <div class="frontpage-whitebox-bottom"></div>
     </section>
+    <!--Navbar specific for index.html-->
     <header class="navbar">
-      <a href="link">HOME</a>
-      <a href="link">ABOUT</a>
-      <a href="link">POSTS</a>
-      <a href="link">CONTACT</a>
-      <a href="link">FAQ</a>
+      <a href="/01-pages/00-00-index/index.html">HOME</a>
+      <a href="/01-pages/01-00-about/about.html">ABOUT</a>
+      <a href="/01-pages/02-00-articles/navigation.html">ARTICLES</a>
+      <a href="/01-pages/03-00-contact/contact.html">CONTACT</a>
+      <a href="/01-pages/04-00-faq/faq.html">FAQ</a>
     </header>
 
-    <div class="main-text-box">
-      <div class="text-column left-column">
-        <p>Left side content</p>
+    <!--Introduction text to website-->
+    <div class="index-introduction">
+      <div class="index-introduction-left">
+        <p><strong>👋 Hi there, I'm Iver!</strong></p>
+        <p>
+          I'm a 21-year-old informatics student at the Norwegian University of
+          Science and Technology (NTNU), originally from Tromsø.
+        </p>
+        <p><strong>🔭 Current Projects</strong></p>
+        <li>
+          <strong>Software Development:</strong> Working on various projects
+          using Java, C#, and JavaScript, focusing on data handling, testing,
+          and application design.
+        </li>
+        <li>
+          <strong>Java Expertise:</strong> Building applications with strong
+          unit testing, logging, and serialization capabilities.
+        </li>
+        <li>
+          <strong>Development:</strong> Creating dynamic and responsive
+          websites, with an emphasis on user-friendly interfaces and seamless
+          functionality.
+        </li>
+        <li>
+          <strong>Unity 3D Development:</strong> Experimenting with Unity 3D to
+          build interactive applications, developing skills in game mechanics,
+          3D modeling, and immersive experiences.
+        </li>
+        <p><strong>⚡ Fun Fact </strong></p>
+        <p>
+          When I'm not coding, you can find me outdoors – climbing, surfing, or
+          ski touring!
+        </p>
       </div>
-      <div class="text-column right-column">
-        <p>Right side content</p>
+      <div class="index-introduction-right">
+        <img
+          src="/01-pages/00-00-index/02-images/personal-photo-2.jpg"
+          alt="Photo of website creator"
+        />
       </div>
     </div>
     <footer></footer>
