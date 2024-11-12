@@ -5,19 +5,3 @@
 */
 
 /* NAVIGATION BAR*/
-.navbar {
-    display: grid; /* Enables grid layout */
-    grid-template-columns: repeat(5, 1fr); /* Creates 5 equal columns */
-    margin-top: 100px;
-    height: 100px;
-    background-color:rgb(217, 217, 217);
-    line-height: 100px;
-    text-align: center;
-}
-
-.navbar a {
-    color: yellow;
-    text-decoration: none;
-    font-size: 18px;
-    font-style: bold;
-}
