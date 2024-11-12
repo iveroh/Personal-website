@@ -9,20 +9,30 @@ window.onload = function () {
   const whiteBox = document.querySelector(".frontpage-fader");
   setTimeout(() => {
     whiteBox.style.opacity = "0";
-  }, 1500);
+  }, 500);
 };
 
-//Sticks navbar
+//Activates navbar .sticky when scroll is beyond top page
 document.addEventListener("DOMContentLoaded", function () {
   const navbar = document.querySelector(".navbar");
-  const topContent = document.querySelector(".top-content");
+  const topContent = document.querySelector(".frontpage"); // Adjusted to your top content section
+  const navbarHeight = navbar.offsetHeight;
+
+  // Create a placeholder to reserve space when navbar becomes fixed
+  const navbarPlaceholder = document.createElement("div");
+  navbarPlaceholder.style.height = `${navbarHeight}px`;
+  navbarPlaceholder.style.display = "none"; // Initially hidden
+
+  // Insert the placeholder right before the navbar
+  navbar.parentNode.insertBefore(navbarPlaceholder, navbar);
 
   window.addEventListener("scroll", function () {
-      // Check if the scroll position is past the top content section
       if (window.scrollY >= topContent.offsetHeight) {
-          navbar.classList.add("sticky"); // Make navbar sticky
+          navbar.classList.add("sticky");
+          navbarPlaceholder.style.display = "block"; // Show placeholder to prevent layout shift
       } else {
-          navbar.classList.remove("sticky"); // Remove sticky behavior when above top content
+          navbar.classList.remove("sticky");
+          navbarPlaceholder.style.display = "none"; // Hide placeholder
       }
   });
 });

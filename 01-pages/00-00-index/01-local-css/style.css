@@ -9,9 +9,11 @@
 * STANDARD SETTINGS
 *
 **/
-body, html {
-    margin: 0;
-    padding: 0;
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 /**
@@ -21,7 +23,7 @@ body, html {
 /**
 
  /*Frontpage full section*/
- .frontpage {
+.frontpage {
   position: relative;
   width: 100%;
   height: 520px;
@@ -52,6 +54,7 @@ body, html {
 
 /*Frontpage title*/
 .text-overlay {
+  font-family: 'Times New Roman', Times, serif;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -81,7 +84,7 @@ body, html {
   top: 50px;
   left: 0;
   width: 100%;
-  height: 50px; /* Adjust to control the box height */
+  height: 50px;
   background: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 1),
@@ -92,15 +95,20 @@ body, html {
 
 /*Frontpage faderbox bottom*/
 .frontpage-whitebox-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 50px;
-    background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-    z-index: 10;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+  z-index: 10;
 }
 
+/*Frontpage whitebox bottom*/
 
 /**
 *
@@ -110,40 +118,43 @@ body, html {
 
 /*Standard navbar settings*/
 .navbar {
-  margin-top: 100px;
   width: 100%;
-  height: 100px;
-  background-color: rgb(130, 130, 130);
+  background-color: rgb(255, 255, 255);
   color: white;
   text-align: center;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  line-height: 100px;
-  position: sticky;
+  line-height: 60px;
   top: 0;
   z-index: 1000;
-}
+  height: 90px;
 
-/*Display settings when visible*/
-.navbar.visible {
-    display: grid;
-    transform: translateY(0);
+  /*Transition to grey */
+  transition: background-color 0.5s ease;
+  transition: line-height 1s ease;
 }
 
 /*Display settings when sticky*/
 .navbar.sticky {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
+  background-color: rgb(255, 255, 255);
+  line-height: 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 /*Navbar links*/
 .navbar a {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    font-size: 25px;
-    font-style: bold;
+  color: rgb(131, 131, 131);
+  text-decoration: none;
+  font-size: 25px;
+  font-style: bold;
+}
+
+/*Navbar links when sticky*/
+.navbar.sticky a {
+  color: rgb(131, 131, 131);
 }
 
 /**
@@ -154,40 +165,49 @@ body, html {
 
 /*Introduction text*/
 .index-introduction {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Two equal columns */
-    height: 80vh; /* 80% of viewport height */
-    margin-top: 100px; /* Offset for the navbar height */
-    background-color: white; /* Background color for visibility */
-    padding: 20px;
-    color: black;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  height: 80vh; /* 80% of viewport height */
+  margin-top: 100px; /* Offset for the navbar height */
+  background-color: white; /* Background color for visibility */
+  padding: 20px;
+  color: black;
+}
+
+/*Introduction text list elements*/
+.index-introduction-left li {
+  list-style-position: inside; /* Moves the list symbol inside the box */
+  padding-left: 1.5em; /* Adds padding for text alignment */
+  text-indent: -1.5em; /* Indents the first line to align with the symbol */
 }
 
 /*Introduction section*/
 .text-column {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    font-size: 24px;
-    text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-size: 24px;
+  text-align: center;
 }
 
 /*Introduction left grid*/
 .index-introduction-left {
-    background-color: #ffffff; /* Light background for left column */
+  background-color: #ffffff; /* Light background for left column */
+  line-height: 25px;
 }
 
 /*Introduction right grid*/
 .index-introduction-right {
-    background-color: #ffffff; /* Slightly darker background for right column */
+  background-color: #ffffff; /* Slightly darker background for right column */
 }
 
 /*Introduction right grid image*/
 .index-introduction-right img {
-  margin: 10%;
-  max-width: 80%;
-  max-height: 80%;
+  margin-left: 20%;
+  margin-top: 10%;
+  max-width: 60%;
+  max-height: 60%;
   border-radius: 50%;
 }
 
