@@ -3,75 +3,21 @@
 /* MAIN CASCADING STYLE SHEET FOR STYLING
 /*
 */
-body {
-  margin: 0;
-}
 
-/*Fade in effect for home page */
-/*TODO: Move to 00-00-index */
-.frontpage-fader {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 100;
-  transition: opacity 1s ease-in-out;
-}
-
-.front-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.text-overlay {
-    position: absolute;
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Center align */
-    color: yellow; /* Adjust color for readability */
-    font-size: 100px; /* Adjust font size as needed */
-    font-weight: bold;
+/* NAVIGATION BAR*/
+.navbar {
+    display: grid; /* Enables grid layout */
+    grid-template-columns: repeat(5, 1fr); /* Creates 5 equal columns */
+    margin-top: 100px;
+    height: 100px;
+    background-color:rgb(217, 217, 217);
+    line-height: 100px;
     text-align: center;
-    white-space: nowrap; /* Prevent text from wrapping to a new line */
-    overflow: hidden;
 }
 
-.frontpage {
-  position: relative;
-  width: 100%;
-  height: 520px; /* Adjust based on your design */
-  overflow: hidden;
+.navbar a {
+    color: yellow;
+    text-decoration: none;
+    font-size: 18px;
+    font-style: bold;
 }
-
-.frontpage-whitebox-top-0 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 50px;
-    background-color: white;
-}
-
-.frontpage-whitebox-top {
-position: absolute;
-  top: 50px;
-  left: 0;
-  width: 100%;
-  height: 50px; /* Adjust to control the box height */
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-}
-
-.frontpage-whitebox-bottom {
-    position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 20px; /* Adjust to control the box height */
-      background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-    }
