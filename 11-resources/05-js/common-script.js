@@ -1,106 +1,112 @@
-//Creates the nav and footer in all elements
-
-//lists to make links to navigate the pages.
-//0: class, 1: href, 2: html, 3; target
-let navList = [
-  ["home", "/01-pages/00-00-index/index.html", "HOME", ""],
-  ["article", "navigation.html", "ARTICLES", ""],
-  ["about", "about.html", "ABOUT", ""],
-  ["contact-us", "contact.html", "Contact us", ""],
-];
-
-let socialList = [
-  ["facebook logo", "https://www.facebook.com/", "", "_blank"],
-  ["instagram logo", "https://www.instagram.com/", "", "_blank"],
-  ["github logo", "https://www.github.com/", "", "_blank"],
-  ["discord logo", "https://www.discord.com/", "", "_blank"],
-];
-
-//Reusible function that makes html code for links.
-//Is used 3 times to create all the links in nav and footer
-//Takes in a list written like those above and where to append the html elements created
-function createLinks(list, place) {
-  //creating articles
-  for (let el in list) {
-    const klasse = list[el][0];
-    const link = list[el][1];
-    const name = list[el][2];
-    const target = list[el][3];
-    place.innerHTML += `   
-        <a href="${link}" class="${klasse}" target="${target}">${name}</a>`;
-  }
-}
-
-//creating navbar
-function navbar() {
-  //collecting elements from DOM
+function createNavbar() {
+  // Select the header element
   const header = document.querySelector("header");
-  const navbar = document.createElement("nav");
 
-  //Img for navbar and toggle class for mobile version
-  header.innerHTML += '<img src="img/logos/navbar.svg" class="pulldown-button" alt="pulldown menu">';
-  const pulldown = document.querySelector(".pulldown-button");
-  pulldown.addEventListener("click", () => {
-    navbar.classList.toggle("toggle");
-    header.classList.toggle("toggle-header");
-  })
+  // Create the nav element
+  const nav = document.createElement("nav");
 
-  //appending navbar
-  header.append(navbar);
+  // Define the navigation items
+  const navItems = [
+    { text: "HOME", href: "#" },
+    { text: "ABOUT", href: "#about" },
+    { text: "ARTICLES", href: "#articles" },
+    { text: "CONTACT", href: "#contact" },
+    { text: "FAQ", href: "#faq"}
+  ];
+  // Loop through the nav items and create links
+  navItems.forEach((item) => {
+    const link = document.createElement("a");
+    link.textContent = item.text;
+    link.href = item.href;
+    nav.appendChild(link);
+  });
 
-  //creating links
-  createLinks(navList, navbar);
+  // Append the nav to the header
+  header.appendChild(nav);
 }
 
-//Function for footer
-function footer() {
-  //getting footer from Dom
-  const footer = document.querySelector("footer");
 
-  //DIV FOR CONTACT INFO (left)
-  const contactDiv = document.createElement("div");
-  contactDiv.classList = "contact-div";
-  footer.append(contactDiv);
+    // Function to create the footer
+    function createFooter() {
+      // Select the footer element
+      const footer = document.querySelector('footer');
 
-  contactDiv.innerHTML += `
-  <h3>Contact information</h3>
-  <p>Epost:</p>
-  <p>studyHow@wedongivashit.no</p>
-  <p>Tlf</p>
-  <p>605-475-6961</p>
-  <p>Adress:</p>
-  <a href="https://maps.app.goo.gl/LzLRzUTYwhejVio26" target="_blank">Slottsplassen 1, 0010 Oslo</a>
-  `;
+      // Create the contact information section
+      const contactSection = document.createElement('div');
+      contactSection.classList.add('footer-section', 'contact-info');
 
-  //DIV FOR SOCIAL LINKS AND LOGO (center)
-  //making to divs to add links and logos
-  const centerDiv = document.createElement("div");
-  centerDiv.classList = "center-div";
-  footer.append(centerDiv);
+      const contactTitle = document.createElement('h3');
+      contactTitle.textContent = 'Contact Information';
+      contactSection.appendChild(contactTitle);
 
-  const socialDiv = document.createElement("div");
-  socialDiv.classList = "social-div";
-  centerDiv.append(socialDiv);
+      const contactDetails = [
+        'Email: iveroprandheggelund@gmail.com',
+      ];
 
-  //create social links
-  createLinks(socialList, socialDiv);
+      contactDetails.forEach(info => {
+        const p = document.createElement('p');
+        p.textContent = info;
+        contactSection.appendChild(p);
+      });
 
-  //adding logo
-  centerDiv.innerHTML += `
-  <img src="img/anlain_logo.svg" alt="Logo of Ånlain">
-  <p>&copy;gruppe 4 2023</p>`;
-  
-  //DIV FOR NAVIGATION (right)
-  const navDiv = document.createElement("div");
-  navDiv.classList = "navigation-div";
-  footer.append(navDiv);
+      // Create the social links section
+      const socialSection = document.createElement('div');
+      socialSection.classList.add('footer-section', 'social-links');
 
-  //create navigation links
-  createLinks(navList, navDiv);
+      const socialTitle = document.createElement('h3');
+      socialTitle.textContent = 'Media';
+      socialSection.appendChild(socialTitle);
 
-  //Link to sitemap
-  navDiv.innerHTML += '<a href="sitemap.html" class="sitemap">Sitemap</a>'
-}
-//Calling the function
-footer();
-navbar();
+      const socialLinks = [
+        { name: 'Instagram', href: 'https://instagram.com', icon: '📸' },
+        { name: 'GitHub', href: 'https://github.com', icon: '💻' },
+        { name: 'Facebook', href: 'https://facebook.com', icon: '📘' },
+      ];
+
+      socialLinks.forEach(link => {
+        const a = document.createElement('a');
+        a.href = link.href;
+        a.target = '_blank'; // Open link in a new tab
+        a.textContent = `${link.icon} ${link.name}`;
+        socialSection.appendChild(a);
+      });
+
+      // Append both sections to the footer
+      footer.appendChild(contactSection);
+      footer.appendChild(socialSection);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const contentBlocks = document.querySelectorAll(".content-block");
+    
+      const observer = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("appear");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 } // Trigger when 10% of the block is visible
+      );
+    
+      contentBlocks.forEach(block => observer.observe(block));
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const navbar = document.querySelector("nav");
+    
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 50) {
+          navbar.classList.add("sticky");
+        } else {
+          navbar.classList.remove("sticky");
+        }
+      });
+    });
+    
+
+//Run
+createNavbar();
+createFooter();
