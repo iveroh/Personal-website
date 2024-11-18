@@ -159,7 +159,7 @@ footer {
 }
 
 .footer-logo img {
-  max-width: 100px;
+  max-width: 300px;
 }
 
 .footer-links,
@@ -170,17 +170,18 @@ footer {
 
 .footer-links li,
 .footer-social li {
-  margin: 5px 0;
+  margin: 20px 0;
 }
 
 .footer-links a,
 .footer-social a {
   color: white;
+  margin-left: 60px;
   text-decoration: none;
   font-size: 16px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap:20px;
 }
 
 .footer-links a:hover,
