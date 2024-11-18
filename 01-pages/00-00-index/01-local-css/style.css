@@ -26,7 +26,7 @@ html {
 .frontpage {
   position: relative;
   width: 100%;
-  height: 520px;
+  height: 85vh;
   overflow: hidden;
 }
 
@@ -50,13 +50,13 @@ html {
   width: 100%;
   height: 100%;
   z-index: 1;
+  object-fit: cover;
 }
 
 /*Frontpage title*/
-.text-overlay {
-  font-family: "Times New Roman", Times, serif;
+.frontlogo {
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: rgb(255, 255, 255);
@@ -157,7 +157,7 @@ html {
 
 /**
 *
-* Footer
+* FOOTER
 *
 **/
 
@@ -166,49 +166,58 @@ footer {
   color: white;
   padding: 20px;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Default to column layout for better structure */
   align-items: center;
   text-align: center;
 }
 
+/* Footer wrapper for content alignment */
 .footer-wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Distribute sections evenly */
   align-items: center;
   width: 100%;
   max-width: 1200px;
-  margin-bottom: 20px;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
+/* Footer sections (logo, links) */
 .footer-section {
   flex: 1;
   text-align: center;
 }
 
-.footer-logo img {
-  max-width: 300px;
+/* Footer logo adjustments */
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 1 auto; /* Prevent logo from stretching */
 }
 
+.footer-logo img {
+  max-width: 150px;
+  height: auto;
+}
+
+/* Links and Social sections */
 .footer-links,
 .footer-social {
   list-style: none;
   padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row; /* Keep horizontal layout */
+  gap: 10px;
+  justify-content: center;
 }
 
-.footer-links li,
-.footer-social li {
-  margin: 20px 0;
-}
-
+/* Links and Social items */
 .footer-links a,
 .footer-social a {
   color: white;
-  margin-left: 60px;
   text-decoration: none;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  gap:20px;
+  font-size: 14px;
 }
 
 .footer-links a:hover,
@@ -216,15 +225,47 @@ footer {
   color: #ddd;
 }
 
-footer p {
-  font-size: 14px;
-  margin-top: 10px;
-}
-
-/* Social Media Icon Styles */
+/* Social media icons */
 .social-icon {
   width: 20px;
   height: 20px;
+}
+
+/* Copyright text */
+footer p {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 900px) {
+  .footer-wrapper {
+    flex-wrap: nowrap; /* Prevent stacking */
+    flex-direction: row; /* Horizontal alignment */
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Adjust section spacing */
+  .footer-section {
+    flex: 0 0 auto; /* Prevent excessive shrinking */
+  }
+
+  /* Links and social layout adjustments */
+  .footer-links,
+  .footer-social {
+    gap: 5px; /* Reduce spacing */
+    flex-wrap: wrap; /* Allow links to wrap if needed */
+  }
+
+  /* Resize logo */
+  .footer-logo img {
+    max-width: 100px;
+  }
+
+  footer p {
+    margin-top: 5px;
+  }
 }
 
 /**
@@ -306,24 +347,26 @@ footer p {
   overflow: hidden;
   margin: 0 auto;
   position: relative;
+  z-index: 100;
 }
 
 /* Adjust slider height and behavior on smaller screens */
 @media (max-width: 900px) {
   .image-slider-container {
     margin-top: 350px;
-    height: 250px;                 /* Reduce height to avoid covering text */
+    min-height: 100vh;                 /* Reduce height to avoid covering text */
   }
 }
 
 .image-slider {
+  object-fit: contain;
   display: flex;
   animation: scroll 90s linear infinite;
 }
 
 .image-slider img {
   width: 33.33vw;                  /* Each image takes 1/3 of the viewport width */
-  height: 100%;                    /* Fill the container’s height */
+  height: 100vh;                    /* Fill the container’s height */
   flex-shrink: 0;
   object-fit: cover;               /* Scale and crop to fill */
   object-position: center;         /* Center images vertically */
@@ -348,6 +391,60 @@ footer p {
   }
 
   .frontpage {
-    height: 100%; /* Adjust container height for smaller screens */
+    height: 100%;
+  }
+  
+}
+
+
+/*Mobile screens*/
+@media (max-width: 768px) {
+  .navbar a {
+    font-size: 16px; /* Smaller text for mobile */
+    padding: 10px; /* Adjust padding */
+    line-height: 40px;
+  }
+
+  .navbar {
+    line-height: 50px; /* Reduce height */
+    height: 60px; /* Adjust overall height */
+  }
+  .frontlogo {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    z-index: 10; /* Ensure it appears above other content */
+  }
+
+  .frontpage {
+    height: 80vh; /* Reduce height to avoid content overflow */
+  }
+  .index-introduction {
+    grid-template-columns: 1fr;
+    height: auto;
+    margin-top: 50px; 
+  }
+
+  .text-column {
+    font-size: 18px; /* Adjust font size for readability */
+    padding: 15px;
+  }
+  .image-slider-container {
+    height: 200px; /* Reduce height for smaller screens */
+  }
+
+  .image-slider img {
+    width: 100vw; /* Make each image take full width */
+  }
+  .footer-wrapper {
+    flex-direction: column; /* Stack sections vertically */
+    text-align: center;
+  }
+
+  .footer-section {
+    margin-bottom: 10px; /* Add spacing between sections */
   }
 }
