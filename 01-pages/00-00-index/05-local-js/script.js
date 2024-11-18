@@ -12,29 +12,41 @@ window.onload = function () {
   }, 500);
 };
 
-//Activates navbar .sticky when scroll is beyond top page
+//activate sticky
 document.addEventListener("DOMContentLoaded", function () {
   const navbar = document.querySelector(".navbar");
-  const topContent = document.querySelector(".frontpage"); // Adjusted to your top content section
-  const navbarHeight = navbar.offsetHeight;
-
-  // Create a placeholder to reserve space when navbar becomes fixed
+  const topContent = document.querySelector(".frontpage");
   const navbarPlaceholder = document.createElement("div");
-  navbarPlaceholder.style.height = `${navbarHeight}px`;
-  navbarPlaceholder.style.display = "none"; // Initially hidden
 
-  // Insert the placeholder right before the navbar
+  // Set placeholder height equal to the navbar height
+  const updateNavbarPlaceholder = () => {
+    navbarPlaceholder.style.height = `${navbar.offsetHeight}px`;
+  };
+
+  // Insert the placeholder and ensure it starts hidden
+  navbarPlaceholder.style.display = "none";
   navbar.parentNode.insertBefore(navbarPlaceholder, navbar);
 
-  window.addEventListener("scroll", function () {
-      if (window.scrollY >= topContent.offsetHeight) {
-          navbar.classList.add("sticky");
-          navbarPlaceholder.style.display = "block"; // Show placeholder to prevent layout shift
-      } else {
-          navbar.classList.remove("sticky");
-          navbarPlaceholder.style.display = "none"; // Hide placeholder
-      }
-  });
+  // Toggle sticky state based on scroll position
+  const toggleStickyNavbar = () => {
+    const triggerPoint = topContent.getBoundingClientRect().bottom <= 0;
+
+    if (triggerPoint) {
+      navbar.classList.add("sticky");
+      navbarPlaceholder.style.display = "block";
+    } else {
+      navbar.classList.remove("sticky");
+      navbarPlaceholder.style.display = "none";
+    }
+  };
+
+  // Update placeholder height on load and resize to handle dynamic layouts
+  updateNavbarPlaceholder();
+  window.addEventListener("resize", updateNavbarPlaceholder);
+
+  // Attach scroll listener and run once on load
+  window.addEventListener("scroll", toggleStickyNavbar);
+  toggleStickyNavbar();
 });
 
 const slider = document.querySelector('.image-slider');
