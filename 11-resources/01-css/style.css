@@ -133,39 +133,68 @@ nav a:hover {
 /********************/
 /*      Footer      */
 /********************/
+
 footer {
   background-color: rgb(131, 131, 131);
   color: white;
   padding: 20px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-wrapper {
+  display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
-  bottom: 0;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 20px;
 }
 
 .footer-section {
   flex: 1;
-  margin: 10px;
+  text-align: center;
 }
 
-.footer-section h3 {
-  margin-bottom: 10px;
-  font-size: 20px;
+.footer-logo img {
+  max-width: 100px;
 }
 
-.contact-info p,
-.social-links a {
+.footer-links,
+.footer-social {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li,
+.footer-social li {
   margin: 5px 0;
-  font-size: 16px;
-  text-decoration: none;
-  color: white;
 }
 
-.social-links a:hover {
+.footer-links a,
+.footer-social a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-links a:hover,
+.footer-social a:hover {
   color: #ddd;
 }
 
-.social-links {
-  display: flex;
-  gap: 10px;
+footer p {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* Social Media Icon Styles */
+.social-icon {
+  width: 20px;
+  height: 20px;
 }

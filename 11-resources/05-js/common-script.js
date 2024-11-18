@@ -1,3 +1,9 @@
+/**
+ * 
+ * Navbar
+ * 
+ */
+
 function createNavbar() {
   // Select the header element
   const header = document.querySelector("header");
@@ -25,57 +31,87 @@ function createNavbar() {
   header.appendChild(nav);
 }
 
+/**
+ * 
+ * Footer
+ * 
+ */
 
-    // Function to create the footer
-    function createFooter() {
-      // Select the footer element
-      const footer = document.querySelector('footer');
+function createFooter() {
+  const footer = document.querySelector('footer');
+  
+  // Create wrapper for footer content
+  const footerWrapper = document.createElement('div');
+  footerWrapper.classList.add('footer-wrapper');
+  
+  // Left list (Links)
+  const linksSection = document.createElement('ul');
+  linksSection.classList.add('footer-section', 'footer-links');
+  const links = ['Home', 'About', 'Services', 'Contact'];
+  links.forEach(link => {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.textContent = link;
+    a.href = `#${link.toLowerCase()}`;
+    li.appendChild(a);
+    linksSection.appendChild(li);
+  });
 
-      // Create the contact information section
-      const contactSection = document.createElement('div');
-      contactSection.classList.add('footer-section', 'contact-info');
+  // Logo in the center
+  const logoSection = document.createElement('div');
+  logoSection.classList.add('footer-section', 'footer-logo');
+  const logo = document.createElement('img');
+  logo.src = 'path/to/logo.png'; // Replace with your logo path
+  logo.alt = 'Logo';
+  logoSection.appendChild(logo);
 
-      const contactTitle = document.createElement('h3');
-      contactTitle.textContent = 'Contact Information';
-      contactSection.appendChild(contactTitle);
+  // Right list (Social media)
+  const socialSection = document.createElement('ul');
+  socialSection.classList.add('footer-section', 'footer-social');
+  const socialLinks = [
+    { name: 'Instagram', href: 'https://instagram.com', icon: '/11-resources/02-images/instagram-logo.png' },
+    { name: 'GitHub', href: 'https://github.com', icon: '/11-resources/02-images/github-logo.png' },
+    { name: 'Facebook', href: 'https://facebook.com', icon: '/11-resources/02-images/facebook-logo.png' },
+  ];
+  socialLinks.forEach(link => {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = link.href;
+    a.target = '_blank'; // Open link in new tab
 
-      const contactDetails = [
-        'Email: iveroprandheggelund@gmail.com',
-      ];
+    const img = document.createElement('img');
+    img.src = link.icon;
+    img.alt = `${link.name} logo`;
+    img.classList.add('social-icon');
 
-      contactDetails.forEach(info => {
-        const p = document.createElement('p');
-        p.textContent = info;
-        contactSection.appendChild(p);
-      });
+    const span = document.createElement('span');
+    span.textContent = link.name;
 
-      // Create the social links section
-      const socialSection = document.createElement('div');
-      socialSection.classList.add('footer-section', 'social-links');
+    a.appendChild(img);
+    a.appendChild(span);
+    li.appendChild(a);
+    socialSection.appendChild(li);
+  });
 
-      const socialTitle = document.createElement('h3');
-      socialTitle.textContent = 'Media';
-      socialSection.appendChild(socialTitle);
+  // Append all sections to the footer wrapper
+  footerWrapper.appendChild(linksSection);
+  footerWrapper.appendChild(logoSection);
+  footerWrapper.appendChild(socialSection);
 
-      const socialLinks = [
-        { name: 'Instagram', href: 'https://instagram.com', icon: '📸' },
-        { name: 'GitHub', href: 'https://github.com', icon: '💻' },
-        { name: 'Facebook', href: 'https://facebook.com', icon: '📘' },
-      ];
+  // Add footer wrapper to footer
+  footer.appendChild(footerWrapper);
 
-      socialLinks.forEach(link => {
-        const a = document.createElement('a');
-        a.href = link.href;
-        a.target = '_blank'; // Open link in a new tab
-        a.textContent = `${link.icon} ${link.name}`;
-        socialSection.appendChild(a);
-      });
+  // Footer copyright
+  const copyright = document.createElement('p');
+  copyright.textContent = '© 2024 IOH. All rights reserved.';
+  footer.appendChild(copyright);
+}
 
-      // Append both sections to the footer
-      footer.appendChild(contactSection);
-      footer.appendChild(socialSection);
-    }
-
+/**
+ * 
+ * Articles appearing animation
+ * 
+ */
     document.addEventListener("DOMContentLoaded", () => {
       const contentBlocks = document.querySelectorAll(".content-block");
     
@@ -88,12 +124,17 @@ function createNavbar() {
             }
           });
         },
-        { threshold: 0.1 } // Trigger when 10% of the block is visible
+        { threshold: 0.1 }
       );
     
       contentBlocks.forEach(block => observer.observe(block));
     });
 
+    /**
+     * 
+     * Navbar sticky activation
+     * 
+     */
     document.addEventListener("DOMContentLoaded", function () {
       const navbar = document.querySelector("nav");
     
