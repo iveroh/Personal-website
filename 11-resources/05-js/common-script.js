@@ -13,7 +13,7 @@ function createNavbar() {
 
   // Define the navigation items
   const navItems = [
-    { text: "HOME", href: "/01-pages/00-00-index/index.html" },
+    { text: "HOME", href: "index.html" },
     { text: "ABOUT", href: "/01-pages/01-00-about/about.html" },
     { text: "ARTICLES", href: "/01-pages/02-00-articles/navigation.html" },
     { text: "CONTACT", href: "/01-pages/03-00-contact/contact.html" },
