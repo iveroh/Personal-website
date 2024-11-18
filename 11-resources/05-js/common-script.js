@@ -7,11 +7,11 @@ function createNavbar() {
 
   // Define the navigation items
   const navItems = [
-    { text: "HOME", href: "#" },
-    { text: "ABOUT", href: "#about" },
-    { text: "ARTICLES", href: "#articles" },
-    { text: "CONTACT", href: "#contact" },
-    { text: "FAQ", href: "#faq"}
+    { text: "HOME", href: "/01-pages/00-00-index/index.html" },
+    { text: "ABOUT", href: "/01-pages/01-00-about/about.html" },
+    { text: "ARTICLES", href: "/01-pages/02-00-articles/navigation.html" },
+    { text: "CONTACT", href: "/01-pages/03-00-contact/contact.html" },
+    { text: "FAQ", href: "/01-pages/04-00-faq/faq.html"}
   ];
   // Loop through the nav items and create links
   navItems.forEach((item) => {
