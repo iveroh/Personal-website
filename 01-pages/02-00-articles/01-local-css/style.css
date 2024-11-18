@@ -1,0 +1,227 @@
+/*
+/* 02-00-articles
+/* CASCADING STYLE SHEET FOR STYLING
+/* IN ORDER OF WEBPAGE VIEW
+**/
+
+/**
+*
+* STANDARD SETTINGS
+*
+**/
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/**
+*
+* FRONTPAGE
+*
+/**
+
+ /*Frontpage full section*/
+.frontpage {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  overflow: hidden;
+}
+
+/*Opening image fader*/
+.frontpage-fader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 100;
+  transition: opacity 1s ease-in-out;
+}
+
+/*Frontpage image*/
+.front-img img {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/*Frontpage title*/
+.text-overlay {
+  font-family: "Times New Roman", Times, serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(255, 255, 255);
+  font-size: 100px;
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/*Frontpage top box*/
+.frontpage-whitebox-top-0 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: white;
+  z-index: 10;
+}
+
+/*Frontpage faderbox top*/
+.frontpage-whitebox-top {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+  z-index: 10;
+}
+
+/*Frontpage faderbox bottom*/
+.frontpage-whitebox-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+  z-index: 10;
+}
+
+/**
+*
+* NAVBAR SPECIFIC FOR INDEX.HTML
+*
+**/
+
+/*Standard navbar settings*/
+.navbar {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  color: white;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  line-height: 60px;
+  top: 0;
+  z-index: 1000;
+  height: 100px;
+
+  /*Transition to grey */
+  transition: background-color 0.5s ease;
+  transition: line-height 1s ease;
+}
+
+/*Display settings when sticky*/
+.navbar.sticky {
+  background-color: rgb(255, 255, 255);
+  line-height: 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+/*Navbar links*/
+.navbar a {
+  color: rgb(131, 131, 131);
+  text-decoration: none;
+  font-size: 25px;
+  font-style: bold;
+}
+
+/*Navbar links when sticky*/
+.navbar.sticky a {
+  color: rgb(131, 131, 131);
+}
+
+/**
+*
+* INTRODUCTION TEXT
+*
+**/
+h1 {
+    color: rgb(131, 131, 131);
+    font-weight: normal;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two images per row */
+    gap: 20px;
+    margin-top: 20px;
+    margin-left: 10px;
+  }
+
+  .grid-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .grid-item a {
+    display: block;
+    position: relative;
+    text-decoration: none;
+  }
+
+  .grid-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .grid-item .text-overlay {
+    font-family: Helvetica, Arial, sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .grid-item:hover .text-overlay {
+    color: rgb(209, 209, 209);
+  }
+
+
+/**
+*
+* MEDIA TRANSFORMATIONS
+*
+**/
+
+@media (max-width: 900px) {
+  .text-overlay {
+    font-size: 60px;
+  }
+}
+@media (max-width: 600px) {
+    .grid-container {
+      grid-template-columns: 1fr;
+    }
+  }
