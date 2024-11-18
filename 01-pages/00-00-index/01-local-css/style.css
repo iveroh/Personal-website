@@ -157,6 +157,78 @@ html {
 
 /**
 *
+* Footer
+*
+**/
+
+footer {
+  background-color: rgb(131, 131, 131);
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 20px;
+}
+
+.footer-section {
+  flex: 1;
+  text-align: center;
+}
+
+.footer-logo img {
+  max-width: 300px;
+}
+
+.footer-links,
+.footer-social {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li,
+.footer-social li {
+  margin: 20px 0;
+}
+
+.footer-links a,
+.footer-social a {
+  color: white;
+  margin-left: 60px;
+  text-decoration: none;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap:20px;
+}
+
+.footer-links a:hover,
+.footer-social a:hover {
+  color: #ddd;
+}
+
+footer p {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* Social Media Icon Styles */
+.social-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/**
+*
 * INTRODUCTION TEXT
 *
 **/

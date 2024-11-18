@@ -61,7 +61,7 @@ function createFooter() {
   const logoSection = document.createElement('div');
   logoSection.classList.add('footer-section', 'footer-logo');
   const logo = document.createElement('img');
-  logo.src = 'path/to/logo.png'; // Replace with your logo path
+  logo.src = '/11-resources/02-images/logo-white.png';
   logo.alt = 'Logo';
   logoSection.appendChild(logo);
 
@@ -69,9 +69,9 @@ function createFooter() {
   const socialSection = document.createElement('ul');
   socialSection.classList.add('footer-section', 'footer-social');
   const socialLinks = [
-    { name: 'Instagram', href: 'https://instagram.com', icon: '/11-resources/02-images/instagram-logo.png' },
-    { name: 'GitHub', href: 'https://github.com', icon: '/11-resources/02-images/github-logo.png' },
-    { name: 'Facebook', href: 'https://facebook.com', icon: '/11-resources/02-images/facebook-logo.png' },
+    { name: 'INSTAGRAM', href: 'https://instagram.com/iverheggelund', icon: '/11-resources/02-images/instagram-logo.png' },
+    { name: 'GITHUB', href: 'https://github.com/iveroh', icon: '/11-resources/02-images/github-logo.png' },
+    { name: 'FACEBOOK', href: 'https://facebook.com/iverheggelund', icon: '/11-resources/02-images/facebook-logo.png' },
   ];
   socialLinks.forEach(link => {
     const li = document.createElement('li');
